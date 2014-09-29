@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.equipnet.barcode"
+version="1.0.4">
+<name>Barcode</name>
+<author>A. Perugini</author>
+<description>Acquisizione barcode.</description>
+<keywords>barcode</keywords>
+<license></license>
+<engines>
+<engine name="cordova" version="3.5.1" />
+</engines>
+<js-module src="www/barcode.js" name="barcode">
+<clobbers target="barcode" />
+</js-module>
+<platform name="android">
+<!-- android-specific elements -->
+<source-file src="src/android/Barcode.java" target-dir="src/com/equipnet/barcode" />
+<config-file target="res/xml/config.xml" parent="/*">
+<feature name="Barcode" >
+<param name="android-package" value="com.equipnet.barcode.Barcode"/>
+</feature>
+</config-file>
+<config-file target="AndroidManifest.xml" parent="/*">
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
+</config-file>
+</platform>
+<lib-file src="start/src/android/native/device/libtiny-tools.so" arch="device" />
+</plugin
